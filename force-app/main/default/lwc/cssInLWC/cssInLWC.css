@@ -1,0 +1,14 @@
+p{
+   color:salmon;
+   font-size: 30px;
+   border: 1px solid red;
+}
+.user:hover{
+    color:red;
+    font-size: 50px;
+
+}
+.user{
+    color:blue;
+    font-size: 100px;
+}

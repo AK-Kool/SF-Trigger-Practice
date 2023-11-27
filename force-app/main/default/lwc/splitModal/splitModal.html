@@ -1,0 +1,45 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large"
+        aria-labelledby="modal-heading-01" aria-modal="true">
+        <div class="slds-modal__container">
+            <button onclick={handleClose}
+                class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Modal header</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="slds-tabs_default">
+                    <ul class="slds-tabs_default__nav" role="tablist">
+                        <li id="listid1" onclick={handleTab1} class="slds-tabs_default__item slds-is-active" title="Item One" role="presentation">
+                            <a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true"
+                                aria-controls="tab-default-1" id="tab-default-1__item" onclick={handleTab1}>Item One</a>
+                        </li>
+                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                            <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+                                aria-controls="tab-default-2" id="tab-default-2__item">Item Two</a>
+                        </li>
+                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                            <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+                                aria-controls="tab-default-3" id="tab-default-3__item">Item Three</a>
+                        </li>
+                    </ul>
+                    <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel"
+                        aria-labelledby="tab-default-1__item">Item One Content</div>
+                    <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel"
+                        aria-labelledby="tab-default-2__item">Item Two Content</div>
+                    <div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel"
+                        aria-labelledby="tab-default-3__item">Item Three Content</div>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_brand">Done</button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

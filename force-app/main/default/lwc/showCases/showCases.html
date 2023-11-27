@@ -1,0 +1,54 @@
+<template>
+    <template if:true={firstPart}>
+        <template if:true={isLoading}>
+            <div class="demo-only" style="height:6rem;position:relative">
+                <div class="slds-spinner_container">
+                    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={isLoading}>
+            <template if:true={hasData}>
+                <div>
+                    <c-search-and-new-case onnew={handleNew} onnewcomplete={handleNewComplete}></c-search-and-new-case>
+                </div>
+                <div>
+                    <lightning-datatable key-field="Id" columns={columns} data={data} hide-checkbox-column
+                        onrowaction={handleRowAction} class="slds-table_bordered slds-table_col-bordered">
+                    </lightning-datatable>
+                </div>  
+            </template>
+
+            <template if:false={hasData}>
+                <p>It seems there is no case or cases are associated with this Account.</p>
+            </template>
+        </template>
+    </template>
+    <template if:true={secondPart}>
+        <div class="slds-text-align_center">
+            <lightning-button-icon icon-name="action:back" alternative-text="back" title="back" onclick={handleBack}
+                variant="brand">
+            </lightning-button-icon>
+        </div>
+        <lightning-record-edit-form record-id={caseRecordId} object-api-name="Case" onsuccess={handleSuccess}
+            onsubmit={handleSubmit}>
+            <lightning-messages>
+            </lightning-messages>
+            <lightning-output-field field-name="CaseNumber">
+            </lightning-output-field>
+            <lightning-output-field field-name="Subject">
+            </lightning-output-field>
+            <lightning-input-field field-name="Status" value="Closed" disabled>
+            </lightning-input-field>
+            <lightning-input-field field-name="Comments">
+            </lightning-input-field>
+            <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update"
+                label="Update and Close">
+            </lightning-button>
+        </lightning-record-edit-form>
+    </template>
+</template>

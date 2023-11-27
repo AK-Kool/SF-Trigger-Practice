@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="To Do List">
+        <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows>
+
+            <lightning-layout-item size="12" large-device-size="6" medium-device-size="10" small-device-size="12"
+                class="slds-m-top_large">
+
+                <lightning-layout>
+                    <lightning-layout-item size="11">
+                        <lightning-input type="text" label="Whats in your mind" variant="label-hidden"
+                            placeholder="type here...">
+                        </lightning-input>
+
+                        <lightning-combobox name="type" value={value} placeholder="select type..."
+                            options={options} onchange={handleChange}>
+                        </lightning-combobox>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1">
+                        
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12">
+                <lightning-button-icon icon-name="utility:add" title="Add Todo" onclick={addTodoHandler}>
+                </lightning-button-icon>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12">
+                <div>Upcoming Checklist</div>
+                <template for:each={upcomingTask} for:item="row">
+                    <c-item-todo 
+                            key={row.Id}
+                            todo-id={row.Id}
+                            todo-name={row.Name}
+                            todo-type={row.Type__c}
+                            onupdate={handleUpdate}
+                            ondelete={handleDelete}
+                            >
+                    </c-item-todo>
+                </template>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12">
+                <div>Completed Checklist</div>
+                <template for:each={completedTask} for:item="row">
+                    <c-item-todo 
+                        key={row.Id} 
+                        todo-id={row.Id} 
+                        todo-name={row.Name} 
+                        todo-type={row.Type__c} 
+                        onupdate={handleUpdate}
+                        ondelete={handleDelete}
+                        todo-status>
+                    </c-item-todo>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

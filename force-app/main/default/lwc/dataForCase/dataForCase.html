@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-3">
+            <input 
+                type="text" 
+                id="text-input-id-46" 
+                placeholder="Search Cases Here..." 
+                required="" 
+                class="slds-input"
+                oninput={handleInput}
+                />
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <fieldset class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <div class="slds-radio_button-group">
+                        <span class="slds-button slds-radio_button">
+                            <input type="radio" name="example-unique-name-92" id="example-unique-id-94"
+                                value="all" onchange={handleRadioButton}/>
+                            <label class="slds-radio_button__label" for="example-unique-id-94">
+                                <span class="slds-radio_faux">All</span>
+                            </label>
+                        </span>
+                        <span class="slds-button slds-radio_button">
+                            <input type="radio" name="example-unique-name-92" id="example-unique-id-95"
+                                value="closed" onchange={handleRadioButton}/>
+                            <label class="slds-radio_button__label" for="example-unique-id-95">
+                                <span class="slds-radio_faux">Closed</span>
+                            </label>
+                        </span>
+                        <span class="slds-button slds-radio_button">
+                            <input type="radio" name="example-unique-name-92" id="example-unique-id-96"
+                                value="open" onchange={handleRadioButton}/>
+                            <label class="slds-radio_button__label" for="example-unique-id-96">
+                                <span class="slds-radio_faux">Open</span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+    <div>
+        <lightning-datatable key-field="Id" columns={columns} data={data} hide-checkbox-column
+                            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
+</template>

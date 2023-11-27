@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="For:each Iterator">
+ 
+        <ul>
+            <template for:each ={empDetails} for:item="details">
+                <li key={details.Id}>{details.Name} is {details.age} years old</li>
+            </template>
+        </ul>
+
+    </lightning-card>
+</template>

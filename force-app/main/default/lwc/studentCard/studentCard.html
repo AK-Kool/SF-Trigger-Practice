@@ -1,0 +1,89 @@
+<template>
+    <article class="slds-card slds-card_boundary">
+        <div class="slds-grid slds-page-header">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div aria-hidden="true" class="slds-media__figure slds-avatar slds-avatar_small">
+                    <div style="background-color: #FCB95B">
+                        <span>
+                            <img
+                                src="https://snowllc2-dev-ed.my.salesforce.com/img/icon/t4/standard/opportunity_split_120.png" />
+                        </span>
+                    </div>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link">
+                            <span title="Opportunity Splits" class="slds-truncate slds-m-right--xx-small">
+                                Contacts Splits
+                            </span>
+                            <span title="(1)" class="slds-shrink-none slds-m-right--xx-small">
+                                (1)
+                            </span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+            <div class="slds-no-flex">
+                <div>
+                    <div class="slds-float--right">
+                        <div class={buttonClass}>
+                            <button
+                                onclick={handleButtonDown} 
+                                class="slds-button slds-button--icon-x-small slds-button--icon-border-filled"
+                                aria-haspopup="true" title="Show More">
+                                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" aria-hidden="true">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Show Action for this Object.</span>
+                            </button>
+                            <div class="slds-dropdown slds-dropdown_actions slds-dropdown_right">
+                                <ul class="slds-dropdown__list" role="menu">
+                                    <li class="slds-dropdown__item" role="presentation">
+                                        <a onclick={handleEditSplit} role="menuitem" tabindex="0">
+                                            <span class="slds-truncate" title="Edit Contacts Splits">Edit Contacts Splits</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-card__body">
+            <ul>
+                <li class="slds-var-p-horizontal_medium slds-var-p-vertical_xx-small">
+                    <article class="slds-tile slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                                <img src="https://snowllc2-dev-ed--c.documentforce.com/profilephoto/7295g000000XzXn/T"
+                                    title="Lexee L. Jackson avatar" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h3 class="slds-tile__title slds-truncate" title="Lexee L. Jackson">
+                                <a href="#">Lexee L. Jackson</a>
+                            </h3>
+                            <div class="slds-tile__detail">
+                                <dl class="slds-list_horizontal slds-wrap">
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">
+                                        First Label:</dt>
+                                    <dd class="slds-item_detail slds-truncate" title="Description for first label">
+                                        Description for first label</dd>
+                                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">
+                                        Second Label:</dt>
+                                    <dd class="slds-item_detail slds-truncate" title="Description for second label">
+                                        Description for second label</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <template if:true={showModal}>
+        <c-split-modal onclose={handleModalClose}></c-split-modal>
+    </template>
+</template>

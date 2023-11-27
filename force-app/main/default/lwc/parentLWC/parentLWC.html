@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent">
+        <lightning-input label="Input 1" data-id="n1" type="number"></lightning-input>
+        <lightning-input label="Input 2" data-id="n2" type="number"></lightning-input>
+        <lightning-button label="Submit" onclick={handleClick}></lightning-button>
+    </lightning-card>
+    <template if:true={hasSumValue}>
+        <c-child-l-w-c sumchild={sum}></c-child-l-w-c>
+    </template>
+</template>
